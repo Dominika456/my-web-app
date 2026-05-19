@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Сухоцветы | Лаванда — композиции, которые живут годами</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background-color:#FEFAF6; color:#2E2A28; font-family:'Inter',sans-serif; line-height:1.5; }
+
+        a {
+            text-decoration: none;
+        }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .navbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; padding:28px 0 20px; border-bottom:1px solid rgba(226,192,173,0.3); margin-bottom:40px; }
+        .logo { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:500; color:#AA7C6A; background:#FFF6F0; padding:6px 16px; border-radius:60px; text-decoration:none; }
+        .logo span { font-weight:300; }
+        .nav-links { display:flex; gap:32px; list-style:none; }
+        .nav-links a { text-decoration:none; font-weight:450; color:#5A4A42; transition:0.2s; font-size:1rem; }
+        .nav-links a:hover, .nav-links a.active { color:#C67C5E; }
+        .page-header { text-align:center; margin:20px 0 48px; }
+        .page-header h1 { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:500; color:#3B2C26; margin-bottom:12px; }
+        .page-header p { color:#957A6B; max-width:650px; margin:0 auto; font-size:1.05rem; }
+        .filter-bar { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:52px; }
+        .filter-btn { background:transparent; border:1px solid #DDBEAE; padding:8px 28px; border-radius:60px; font-size:0.9rem; font-weight:500; color:#AA7C6A; cursor:pointer; transition:0.2s; text-decoration:none; display:inline-block; }
+        .filter-btn.active, .filter-btn:hover { background:#D9B6A0; color:white; border-color:#D9B6A0; }
+        .compositions-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(290px,1fr)); gap:36px; margin-bottom:80px; }
+        .comp-card { background:#FFFFFFE6; border-radius:32px; overflow:hidden; transition:0.25s ease; box-shadow:0 5px 18px rgba(97,70,58,0.05); border:1px solid #F5E3D8; text-decoration:none; color:inherit; display:block; }
+        .comp-card:hover { transform:translateY(-6px); box-shadow:0 22px 30px -14px rgba(98,68,54,0.12); border-color:#E6CFC1; }
+        .comp-img { height:270px; background:#FAF1EA; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #F7E3D8; overflow:hidden; }
+        .comp-img img { width:100%; height:100%; object-fit:cover; }
+        .comp-info { padding:22px 20px 24px; }
+        .comp-info h3 { font-size:1.4rem; font-weight:500; font-family:'Playfair Display',serif; margin-bottom:6px; color:#4C3931; }
+        .comp-price { font-weight:600; color:#B97F64; font-size:1.25rem; margin:8px 0 8px; }
+        .comp-desc { font-size:0.85rem; color:#8C7263; margin-bottom:18px; line-height:1.45; }
+        .btn-detail { background:none; border:1px solid #DDBEAE; padding:8px 24px; border-radius:40px; font-size:0.8rem; font-weight:500; color:#AA7C6A; cursor:pointer; transition:0.2s; display:inline-block; text-decoration:none; }
+        .btn-detail:hover { background:#D9B6A0; color:white; border-color:#D9B6A0; }
+        .footer { margin-top:60px; padding:48px 0 32px; border-top:1px solid #EDDDD2; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; }
+        .footer-col { flex:1; min-width:160px; }
+        .footer-col h4 { font-weight:600; margin-bottom:18px; color:#7F6254; }
+        .footer-col p, .footer-col a { color:#9F8475; text-decoration:none; font-size:0.9rem; line-height:1.8; display:block; }
+        .footer-col a:hover { color:#C59178; }
+        .copyright { text-align:center; margin-top:48px; font-size:0.75rem; color:#BFA696; border-top:1px solid #F0E0D6; padding-top:28px; }
+        @media (max-width:780px) { .navbar { flex-direction:column; gap:18px; } .container { padding:0 18px; } .page-header h1 { font-size:2rem; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <a href="/index" class="logo">ЛАВАНДА<span>florist</span></a>
+        <ul class="nav-links">
+            <li><a href="/byketi">Букеты</a></li>
+            <li><a href="/kompozisii" class="active">Композиции</a></li>
+            <li><a href="/dostavka">Доставка</a></li>
+            <li><a href="/contactu">Контакты</a></li>
+        </ul>
+    </div>
+
+    <div class="page-header">
+        <h1>Композиции из сухоцветов</h1>
+        <p>Эко-стиль, который радует глаз долгие месяцы и не требует полива</p>
+    </div>
+
+    <div class="filter-bar">
+        <a href="/kompozisii" class="filter-btn">Все</a>
+        <a href="/v_kashpo" class="filter-btn">В кашпо</a>
+        <a href="/svadebnie_compozisii" class="filter-btn">Свадебные</a>
+        <a href="/syxosveti" class="filter-btn active">Сухоцветы</a>
+        <a href="/premium" class="filter-btn">Премиум</a>
+    </div>
+
+    <div class="compositions-grid">
+        <!-- Прованс сухой -->
+        <div class="comp-card">
+            <div class="comp-img">
+                <img src="./картинки/прованс_сухой.png" alt="Букет из сухоцветов Прованс сухой">
+            </div>
+            <div class="comp-info"><h3>Прованс сухой</h3><div class="comp-price">2 890 ₽</div><div class="comp-desc">Лаванда, хлопок, бессмертник — аромат лета на годы.</div><a href="#" class="btn-detail">Подробнее</a></div>
+        </div>
+        <!-- Злаковая симфония -->
+        <div class="comp-card">
+            <div class="comp-img">
+                <img src="./картинки/злаковая_симфония.png" alt="Злаковая симфония из сухоцветов">
+            </div>
+            <div class="comp-info"><h3>Злаковая симфония</h3><div class="comp-price">2 490 ₽</div><div class="comp-desc">Колоски пшеницы, эвкалипт, статица, сухоцветы в вазе.</div><a href="#" class="btn-detail">Подробнее</a></div>
+        </div>
+        <!-- Хлопковое облако -->
+        <div class="comp-card">
+            <div class="comp-img">
+                <img src="./картинки/хлопковое_облако.png" alt="Хлопковое облако из сухоцветов">
+            </div>
+            <div class="comp-info"><h3>Хлопковое облако</h3><div class="comp-price">3 290 ₽</div><div class="comp-desc">Веточки хлопка, гипсофила, сушёные цитрусы.</div><a href="#" class="btn-detail">Подробнее</a></div>
+        </div>
+        <!-- Эко-микс -->
+        <div class="comp-card">
+            <div class="comp-img">
+                <img src="./картинки/эко_микс.png" alt="Эко-микс из сухоцветов">
+            </div>
+            <div class="comp-info"><h3>Эко-микс</h3><div class="comp-price">3 990 ₽</div><div class="comp-desc">Краспедия, лунария, эвкалипт, стабилизированный мох.</div><a href="#" class="btn-detail">Подробнее</a></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col"><h4>Лаванда Florist</h4><p>Сухоцветы, которые живут годами</p></div>
+        <div class="footer-col"><h4>Контакты</h4><p>+7 (999) 123-45-67</p><p>hello@lavanda-flower.ru</p></div>
+        <div class="footer-col"><h4>Информация</h4><a href="/delivery">Доставка и оплата</a><a href="#">Возврат</a></div>
+        <div class="footer-col"><h4>Мы в соцсетях</h4><a href="#">Instagram</a><a href="#">Telegram</a></div>
+    </div>
+    <div class="copyright">© 2025 Магазин цветов «Лаванда»</div>
+</div>
+</body>
+</html>

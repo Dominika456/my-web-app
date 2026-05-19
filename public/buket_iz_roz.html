@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Букеты из роз | Лаванда — королевские цветы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background-color:#FEFAF6; color:#2E2A28; font-family:'Inter',sans-serif; line-height:1.5; }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .navbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; padding:28px 0 20px; border-bottom:1px solid rgba(226,192,173,0.3); margin-bottom:40px; }
+        .logo { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:500; color:#AA7C6A; background:#FFF6F0; padding:6px 16px; border-radius:60px; text-decoration:none; }
+        .logo span { font-weight:300; }
+        .nav-links { display:flex; gap:32px; list-style:none; }
+        .nav-links a { text-decoration:none; font-weight:450; color:#5A4A42; transition:0.2s; font-size:1rem; }
+        .nav-links a:hover, .nav-links a.active { color:#C67C5E; }
+        .page-header { text-align:center; margin:20px 0 48px; }
+        .page-header h1 { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:500; color:#3B2C26; margin-bottom:12px; }
+        .page-header p { color:#957A6B; max-width:650px; margin:0 auto; font-size:1.05rem; }
+        .filter-bar { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:52px; }
+        .filter-btn { background:transparent; border:1px solid #DDBEAE; padding:8px 28px; border-radius:60px; font-size:0.9rem; font-weight:500; color:#AA7C6A; cursor:pointer; transition:0.2s; text-decoration:none; display:inline-block; }
+        .filter-btn.active, .filter-btn:hover { background:#D9B6A0; color:white; border-color:#D9B6A0; }
+        .bouquet-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(290px,1fr)); gap:36px; margin-bottom:80px; }
+        .bouquet-card { background:#FFFFFFE6; border-radius:32px; overflow:hidden; transition:0.25s ease; box-shadow:0 5px 18px rgba(97,70,58,0.05); border:1px solid #F5E3D8; text-decoration:none; color:inherit; display:block; }
+        .bouquet-card:hover { transform:translateY(-6px); box-shadow:0 22px 30px -14px rgba(98,68,54,0.12); border-color:#E6CFC1; }
+        .card-img { height:270px; background:#FAF1EA; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #F7E3D8; overflow:hidden; }
+        .card-img img { width:100%; height:100%; object-fit:cover; }
+        .card-info { padding:22px 20px 24px; }
+        .card-info h3 { font-size:1.4rem; font-weight:500; font-family:'Playfair Display',serif; margin-bottom:6px; color:#4C3931; }
+        .card-price { font-weight:600; color:#B97F64; font-size:1.25rem; margin:8px 0 8px; }
+        .card-desc { font-size:0.85rem; color:#8C7263; margin-bottom:18px; line-height:1.45; }
+        .card-badge { display:inline-block; background:#F0E2D8; padding:4px 12px; border-radius:50px; font-size:0.7rem; color:#AA7C6A; margin-bottom:10px; }
+        .card-btn { background:none; border:1px solid #DDBEAE; padding:8px 24px; border-radius:40px; font-size:0.8rem; font-weight:500; color:#AA7C6A; cursor:pointer; transition:0.2s; display:inline-block; text-decoration:none; }
+        .card-btn:hover { background:#D9B6A0; color:white; border-color:#D9B6A0; }
+        .footer { margin-top:60px; padding:48px 0 32px; border-top:1px solid #EDDDD2; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; }
+        .footer-col { flex:1; min-width:160px; }
+        .footer-col h4 { font-weight:600; margin-bottom:18px; color:#7F6254; }
+        .footer-col p, .footer-col a { color:#9F8475; text-decoration:none; font-size:0.9rem; line-height:1.8; display:block; }
+        .footer-col a:hover { color:#C59178; }
+        .copyright { text-align:center; margin-top:48px; font-size:0.75rem; color:#BFA696; border-top:1px solid #F0E0D6; padding-top:28px; }
+        @media (max-width:780px) { .navbar { flex-direction:column; gap:18px; } .container { padding:0 18px; } .page-header h1 { font-size:2rem; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <a href="/index" class="logo">ЛАВАНДА<span>florist</span></a>
+        <ul class="nav-links">
+            <li><a href="/byketi">Букеты</a></li>
+            <li><a href="/kompozisii">Композиции</a></li>
+            <li><a href="/dostavka">Доставка</a></li>
+            <li><a href="/contactu">Контакты</a></li>
+        </ul>
+    </div>
+
+    <div class="page-header">
+        <h1>Букеты из роз</h1>
+        <p>Королева цветов — от нежных пастельных до алых и бордовых оттенков</p>
+    </div>
+
+    <div class="filter-bar">
+        <a href="/byketi" class="filter-btn">Все букеты</a>
+        <a href="/svadebnie_byketi" class="filter-btn">Свадебные</a>
+        <a href="/buket_iz_roz" class="filter-btn active">Розы</a>
+        <a href="/buket_iz_pionov" class="filter-btn">Пионы</a>
+        <a href="/polevie_buketi" class="filter-btn">Полевые</a>
+    </div>
+
+    <div class="bouquet-grid">
+        <!-- Английская роза -->
+        <a href="product-rose.html" class="bouquet-card">
+            <div class="card-img">
+                <img src="./картинки/роза.png" alt="Английская роза — кустовая роза персикового оттенка">
+            </div>
+            <div class="card-info"><div class="card-badge">🌹 Розы</div><h3>Английская роза</h3><div class="card-price">3 450 ₽</div><div class="card-desc">Кустовая роза персикового оттенка, маттиола, нежность.</div><span class="card-btn">Подробнее</span></div>
+        </a>
+        <!-- Алая страсть -->
+        <a href="product-red-rose.html" class="bouquet-card">
+            <div class="card-img">
+                <img src="./картинки/красная_роза.png" alt="Алая страсть — букет из красных роз">
+            </div>
+            <div class="card-info"><div class="card-badge">🌹 Розы</div><h3>Алая страсть</h3><div class="card-price">3 990 ₽</div><div class="card-desc">21 кустовая роза красного цвета, оформление в шляпной коробке.</div><span class="card-btn">Подробнее</span></div>
+        </a>
+        <!-- Эквадорская гордость -->
+        <a href="product-ecvador-rose.html" class="bouquet-card">
+            <div class="card-img">
+                <img src="./картинки/эквадорская_роза.png" alt="Эквадорская гордость — крупные розы из Эквадора">
+            </div>
+            <div class="card-info"><div class="card-badge">🌹 Розы</div><h3>Эквадорская гордость</h3><div class="card-price">5 490 ₽</div><div class="card-desc">25 эквадорских роз, бутоны до 7 см, авторская упаковка.</div><span class="card-btn">Подробнее</span></div>
+        </a>
+        <!-- Радужный микс -->
+        <a href="product-mixed-roses.html" class="bouquet-card">
+            <div class="card-img">
+                <img src="./картинки/радужный_микс.png" alt="Радужный микс — букет из роз разных оттенков">
+            </div>
+            <div class="card-info"><div class="card-badge">🌹 Розы</div><h3>Радужный микс</h3><div class="card-price">4 290 ₽</div><div class="card-desc">Комбинация роз 3 оттенков, гипсофила, эвкалипт.</div><span class="card-btn">Подробнее</span></div>
+        </a>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col"><h4>Лаванда Florist</h4><p>Свежие розы прямо с плантаций</p></div>
+        <div class="footer-col"><h4>Контакты</h4><p>+7 (999) 123-45-67</p><p>hello@lavanda-flower.ru</p></div>
+        <div class="footer-col"><h4>Информация</h4><a href="/delivery">Доставка и оплата</a><a href="#">Возврат</a></div>
+        <div class="footer-col"><h4>Мы в соцсетях</h4><a href="#">Instagram</a><a href="#">Telegram</a></div>
+    </div>
+    <div class="copyright">© 2025 Магазин цветов «Лаванда»</div>
+</div>
+</body>
+</html>

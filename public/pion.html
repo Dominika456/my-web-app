@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нежный пион | Лаванда</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background-color:#FEFAF6; color:#2E2A28; font-family:'Inter',sans-serif; line-height:1.5; }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .navbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; padding:28px 0 20px; border-bottom:1px solid rgba(226,192,173,0.3); margin-bottom:40px; }
+        .logo { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:500; color:#AA7C6A; background:#FFF6F0; padding:6px 16px; border-radius:60px; text-decoration:none; }
+        .nav-links { display:flex; gap:32px; list-style:none; }
+        .nav-links a { text-decoration:none; font-weight:450; color:#5A4A42; transition:0.2s; }
+        .nav-links a:hover { color:#C67C5E; }
+        .product-page { display:flex; flex-wrap:wrap; gap:48px; margin:20px 0 70px; }
+        .product-gallery { flex:1; min-width:280px; background:#F8EFE8; border-radius:32px; height:440px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(200,165,145,0.3); }
+        .product-details { flex:1; min-width:280px; }
+        .product-details h1 { font-family:'Playfair Display',serif; font-size:2.4rem; color:#3B2C26; margin-bottom:8px; }
+        .product-price { font-size:1.8rem; font-weight:600; color:#B97F64; margin:16px 0 12px; }
+        .product-desc { color:#5E4D44; margin-bottom:20px; line-height:1.6; }
+        .size-select { margin:24px 0; }
+        .size-select label { font-weight:500; display:block; margin-bottom:8px; }
+        .size-options { display:flex; gap:12px; }
+        .size-option { border:1px solid #DDBEAE; padding:8px 20px; border-radius:40px; background:white; cursor:pointer; transition:0.2s; }
+        .size-option.selected { background:#D9B6A0; color:white; border-color:#D9B6A0; }
+        .btn-buy { background:#D9B6A0; border:none; padding:14px 36px; font-size:1rem; border-radius:60px; color:white; font-weight:600; cursor:pointer; margin-top:20px; width:100%; max-width:260px; transition:0.2s; }
+        .btn-buy:hover { background:#C59278; }
+        .info-block { background:#FEF5EF; border-radius:28px; padding:28px; margin:40px 0; }
+        .info-block h3 { font-family:'Playfair Display',serif; margin-bottom:16px; color:#4C3530; }
+        .back-link { display:inline-block; margin-bottom:24px; color:#AA7C6A; text-decoration:none; font-size:0.9rem; }
+        .back-link:hover { text-decoration:underline; }
+        .footer { margin-top:60px; padding:48px 0 32px; border-top:1px solid #EDDDD2; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; }
+        .footer-col { flex:1; min-width:160px; }
+        .footer-col h4 { font-weight:600; margin-bottom:18px; color:#7F6254; }
+        .footer-col p, .footer-col a { color:#9F8475; text-decoration:none; font-size:0.9rem; line-height:1.8; display:block; }
+        .copyright { text-align:center; margin-top:48px; font-size:0.75rem; color:#BFA696; border-top:1px solid #F0E0D6; padding-top:28px; }
+        @media (max-width:780px) { .navbar { flex-direction:column; gap:18px; } .container { padding:0 18px; } .product-page { gap:28px; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <a href="/index" class="logo">ЛАВАНДА<span style="font-weight:300">florist</span></a>
+        <ul class="nav-links">
+            <li><a href="/byketi">Букеты</a></li>
+            <li><a href="/kompozisii">Композиции</a></li>
+            <li><a href="/dostavka">Доставка</a></li>
+            <li><a href="/contactu">Контакты</a></li>
+        </ul>
+    </div>
+
+    <a href="/catalog" class="back-link">← Назад к каталогу</a>
+
+    <div class="product-page">
+        <div class="product-gallery">
+            <div class="img-placeholder" style="text-align:center; color:#B49481;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="#C9AA98"><path d="M12 5C9.79 5 8 6.79 8 9C8 11.21 9.79 13 12 13C14.21 13 16 11.21 16 9C16 6.79 14.21 5 12 5Z"/><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                <p>✦ фото букета «Нежный пион» ✦</p>
+            </div>
+        </div>
+        <div class="product-details">
+            <h1>Нежный пион</h1>
+            <div class="product-price">2 790 ₽</div>
+            <div class="product-desc">Пышные пионы нежно-розового оттенка в окружении эвкалипта и гипсофилы. Букет-облако, который дарит ощущение весны и лёгкости. Идеален для признания в чувствах или просто так — для поднятия настроения.</div>
+            <div class="size-select">
+                <label>Размер букета</label>
+                <div class="size-options">
+                    <span class="size-option">Стандарт (15 цветов)</span>
+                    <span class="size-option selected">Премиум (25 цветов)</span>
+                    <span class="size-option">Делюкс (35 цветов)</span>
+                </div>
+            </div>
+            <button class="btn-buy">Добавить в корзину</button>
+            <div class="info-block">
+                <h3>🌸 О букете</h3>
+                <p>Пионы — короли весеннего сада. Мы привозим их напрямую из лучших хозяйств, поэтому бутоны раскрываются постепенно и радуют до 10 дней. В набор входит открытка с вашим текстом.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col"><h4>Лаванда Florist</h4><p>С любовью к цветам с 2015</p></div>
+        <div class="footer-col"><h4>Контакты</h4><p>+7 (999) 123-45-67</p><p>hello@lavanda-flower.ru</p></div>
+        <div class="footer-col"><h4>Информация</h4><a href="/delivery">Доставка и оплата</a><a href="#">Возврат</a></div>
+    </div>
+    <div class="copyright">© 2025 Магазин цветов «Лаванда»</div>
+</div>
+</body>
+</html>

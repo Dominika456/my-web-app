@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Возврат и обмен | Лаванда — условия возврата цветов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background-color:#FEFAF6; color:#2E2A28; font-family:'Inter',sans-serif; line-height:1.5; }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .navbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; padding:28px 0 20px; border-bottom:1px solid rgba(226,192,173,0.3); margin-bottom:40px; }
+        .logo { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:500; color:#AA7C6A; background:#FFF6F0; padding:6px 16px; border-radius:60px; text-decoration:none; }
+        .logo span { font-weight:300; }
+        .nav-links { display:flex; gap:32px; list-style:none; }
+        .nav-links a { text-decoration:none; font-weight:450; color:#5A4A42; transition:0.2s; font-size:1rem; }
+        .nav-links a:hover, .nav-links a.active { color:#C67C5E; }
+        .page-header { text-align:center; margin:20px 0 48px; }
+        .page-header h1 { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:500; color:#3B2C26; margin-bottom:12px; }
+        .page-header p { color:#957A6B; max-width:700px; margin:0 auto; font-size:1.05rem; }
+        .return-content { display:flex; flex-wrap:wrap; gap:48px; margin-bottom:70px; }
+        .return-main { flex:1.5; min-width:280px; }
+        .return-sidebar { flex:1; min-width:260px; }
+        .return-card { background:#FFFFFFE6; border-radius:32px; padding:32px; margin-bottom:32px; border:1px solid #F5E3D8; }
+        .return-card h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:#4A3730; margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid #F0E2D8; }
+        .return-card h3 { font-size:1.2rem; font-weight:600; color:#AA7C6A; margin:24px 0 12px 0; }
+        .return-card h3:first-of-type { margin-top:0; }
+        .return-card p { color:#6F5547; margin-bottom:16px; line-height:1.6; }
+        .return-card ul, .return-card ol { padding-left:24px; margin-bottom:16px; }
+        .return-card li { color:#6F5547; margin-bottom:8px; line-height:1.5; }
+        .return-card li strong { color:#AA7C6A; }
+        .warning-box { background:#FEF5EF; border-left:4px solid #D9B6A0; padding:20px; border-radius:20px; margin:24px 0; }
+        .warning-box p { margin-bottom:0; font-size:0.9rem; }
+        .info-sidebar { background:#FFFFFFD9; border-radius:32px; padding:28px; border:1px solid #F5E3D8; margin-bottom:32px; }
+        .info-sidebar h3 { font-family:'Playfair Display',serif; font-size:1.3rem; color:#4A3730; margin-bottom:16px; }
+        .info-sidebar p { color:#6F5547; margin-bottom:12px; font-size:0.9rem; line-height:1.5; }
+        .contact-ref { background:#FEF5EF; border-radius:28px; padding:24px; margin-top:20px; text-align:center; }
+        .contact-ref h4 { font-family:'Playfair Display',serif; color:#AA7C6A; margin-bottom:12px; }
+        .contact-ref p { margin-bottom:8px; }
+        .btn-return { background:#D9B6A0; border:none; padding:12px 28px; border-radius:60px; font-weight:500; color:white; cursor:pointer; transition:0.2s; text-decoration:none; display:inline-block; margin-top:12px; }
+        .btn-return:hover { background:#C59278; transform:translateY(-2px); }
+        .footer { margin-top:60px; padding:48px 0 32px; border-top:1px solid #EDDDD2; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; }
+        .footer-col { flex:1; min-width:160px; }
+        .footer-col h4 { font-weight:600; margin-bottom:18px; color:#7F6254; }
+        .footer-col p, .footer-col a { color:#9F8475; text-decoration:none; font-size:0.9rem; line-height:1.8; display:block; }
+        .footer-col a:hover { color:#C59178; }
+        .copyright { text-align:center; margin-top:48px; font-size:0.75rem; color:#BFA696; border-top:1px solid #F0E0D6; padding-top:28px; }
+        .back-link { display:inline-block; margin-bottom:24px; color:#AA7C6A; text-decoration:none; font-size:0.9rem; }
+        .back-link:hover { text-decoration:underline; }
+        @media (max-width:780px) { .navbar { flex-direction:column; gap:18px; } .container { padding:0 18px; } .page-header h1 { font-size:2rem; } .return-card { padding:24px; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <a href="/index" class="logo">ЛАВАНДА<span>florist</span></a>
+        <ul class="nav-links">
+            <li><a href="/byketi">Букеты</a></li>
+            <li><a href="/kompozisii">Композиции</a></li>
+            <li><a href="/dostavka">Доставка</a></li>
+            <li><a href="/contactu">Контакты</a></li>
+        </ul>
+    </div>
+
+    <a href="/contactu" class="back-link">← Назад к контактам</a>
+
+    <div class="page-header">
+        <h1>Возврат и обмен</h1>
+        <p>Мы ценим доверие наших клиентов и всегда идём навстречу. Ознакомьтесь с условиями возврата букетов и композиций.</p>
+    </div>
+
+    <div class="return-content">
+        <div class="return-main">
+            <div class="return-card">
+                <h2>🌿 Условия возврата</h2>
+                <p>Цветы — это товар, который требует особых условий хранения и транспортировки. Мы делаем всё возможное, чтобы каждый букет радовал получателя, но учитывайте следующие правила:</p>
+                
+                <h3>✅ Вы можете вернуть или обменять букет, если:</h3>
+                <ul>
+                    <li><strong>Букет имеет явные дефекты</strong> — увядшие бутоны, сломанные стебли, пятна на лепестках (обнаружены при получении).</li>
+                    <li><strong>Состав не соответствует заказу</strong> — другой сорт цветов, не тот размер или цветовая гамма.</li>
+                    <li><strong>Доставка произведена с опозданием более чем на 2 часа</strong> (по предварительному согласованию времени).</li>
+                </ul>
+
+                <h3>❌ Возврат невозможен, если:</h3>
+                <ul>
+                    <li><strong>Букет визуально понравился получателю</strong> (цветы свежие, композиция соответствует фото, но "не понравился вкус").</li>
+                    <li><strong>Букет был вручную изменён или подрезан</strong> (например, получатель убрал упаковку или переставлял цветы в вазу).</li>
+                    <li><strong>Прошло более 2 часов с момента получения</strong> — цветы — живой товар, они быстро теряют свежесть вне правильных условий.</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p>🌸 <strong>Важно:</strong> При получении букета обязательно осмотрите его в присутствии курьера. Если вы обнаружили недостатки, откажитесь от приёмки — курьер составит акт, и мы сразу заменим букет или вернём деньги.</p>
+                </div>
+
+                <h3>💰 Как вернуть деньги?</h3>
+                <ul>
+                    <li><strong>При оплате картой онлайн</strong> — возврат производится на ту же карту в течение 3-10 рабочих дней.</li>
+                    <li><strong>При оплате наличными курьеру</strong> — возврат осуществляется наличными в момент возврата букета.</li>
+                    <li><strong>При оплате через СБП / ссылку</strong> — возврат на счёт, с которого был совершён платёж.</li>
+                </ul>
+
+                <h3>🔄 Обмен букета</h3>
+                <p>Если букет не понравился или не подходит по составу, но цветы свежие — мы предлагаем замену на другой букет из каталога с доплатой или возвратом разницы. Обмен возможен только при обращении в течение 1 часа с момента доставки.</p>
+            </div>
+
+            <div class="return-card">
+                <h2>📋 Процедура возврата</h2>
+                <ol>
+                    <li><strong>Свяжитесь с нами</strong> — по телефону +7 (999) 123-45-67 или на почту return@lavanda-flower.ru. Укажите номер заказа и причину возврата.</li>
+                    <li><strong>Предоставьте фото/видео</strong> — для подтверждения дефектов (если они есть).</li>
+                    <li><strong>Курьер приедет за букетом</strong> — в течение 2 часов после вашего обращения (в рабочее время).</li>
+                    <li><strong>Мы проверим состояние букета</strong> — и произведём возврат или замену.</li>
+                    <li><strong>Деньги поступят на ваш счёт</strong> — согласно выбранному способу оплаты.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="return-sidebar">
+            <div class="info-sidebar">
+                <h3>🌼 Гарантия свежести</h3>
+                <p>Мы гарантируем, что ваши цветы простоят не менее 5 дней при правильном уходе. Если цветы завяли раньше — пришлите фото, и мы компенсируем стоимость.</p>
+                <div style="height: 2px; background:#F0E2D8; margin:16px 0;"></div>
+                <h3>⏱️ Сроки возврата</h3>
+                <p>Заявление на возврат принимается в течение 2 часов с момента получения заказа. По истечении этого времени возврат возможен только в исключительных случаях.</p>
+            </div>
+
+            <div class="contact-ref">
+                <h4>📞 Служба заботы</h4>
+                <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+                <p><strong>Email:</strong> return@lavanda-flower.ru</p>
+                <p><strong>Часы работы:</strong> 9:00 – 21:00 (без выходных)</p>
+                <a href="/contactu" class="btn-return">Связаться с нами</a>
+            </div>
+
+            <div class="info-sidebar" style="margin-top:20px;">
+                <h3>💐 Совет от флориста</h3>
+                <p>Чтобы букет радовал как можно дольше:</p>
+                <ul style="margin-top:10px; padding-left:18px;">
+                    <li>Подрежьте стебли под углом 45°</li>
+                    <li>Меняйте воду каждый день</li>
+                    <li>Держите букет подальше от батарей и прямых солнечных лучей</li>
+                    <li>Опрыскивайте листья водой из пульверизатора</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col"><h4>Лаванда Florist</h4><p>Цветы с любовью с 2015 года</p></div>
+        <div class="footer-col"><h4>Контакты</h4><p>+7 (999) 123-45-67</p><p>hello@lavanda-flower.ru</p></div>
+        <div class="footer-col"><h4>Информация</h4><a href="/dostavka">Доставка и оплата</a><a href="/vozvrat">Возврат</a></div>
+        <div class="footer-col"><h4>Мы в соцсетях</h4><a href="#">Instagram</a><a href="#">Telegram</a><a href="#">ВКонтакте</a></div>
+    </div>
+    <div class="copyright">© 2025 Магазин цветов «Лаванда». Забота о каждом клиенте.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Лаванда | Магазин цветов с доставкой</title>
+    <!-- Подключаем шрифты для элегантного вида -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ========== ГЛОБАЛЬНЫЕ СТИЛИ (полностью отдельно от body) ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FEFAF6;
+            color: #2E2A28;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+        }
+
+        /* контейнер-обёртка для центрирования */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== ХЕДЕР И НАВИГАЦИЯ ========== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 28px 0 20px;
+            border-bottom: 1px solid rgba(226, 192, 173, 0.3);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            color: #AA7C6A;
+            background: #FFF6F0;
+            padding: 6px 16px;
+            border-radius: 60px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #C99E89;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 450;
+            color: #5A4A42;
+            transition: color 0.2s ease;
+            font-size: 1rem;
+            letter-spacing: 0.2px;
+        }
+
+        .nav-links a:hover {
+            color: #C67C5E;
+        }
+
+        /* ========== БЛОК АВТОРИЗАЦИИ ========== */
+        .auth-block {
+            text-align: right;
+            padding: 10px 0;
+            background: #FFF6F0;
+            border-radius: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .auth-block span {
+            margin-right: 15px;
+            font-weight: 500;
+            color: #AA7C6A;
+        }
+        
+        .auth-block button {
+            background: #D9B6A0;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        
+        .auth-block button:hover {
+            background: #C59278;
+        }
+        
+        .admin-link {
+            margin-left: 15px;
+            background: #D9B6A0;
+            padding: 5px 15px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .admin-link:hover {
+            background: #C59278;
+        }
+
+        /* ========== ГЕРОЙ СЕКЦИЯ ========== */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            min-width: 260px;
+        }
+
+        .hero-badge {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #BB8A76;
+            font-weight: 500;
+            margin-bottom: 16px;
+            display: inline-block;
+            background: rgba(199, 141, 118, 0.1);
+            padding: 4px 12px;
+            border-radius: 40px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #3B2C26;
+        }
+
+        .hero-title i {
+            font-style: italic;
+            color: #C1846A;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: #5E4D44;
+            max-width: 500px;
+            margin-bottom: 32px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: #D9B6A0;
+            border: none;
+            padding: 12px 32px;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .btn-primary:hover {
+            background-color: #C59278;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #D9B6A0;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            color: #AA7C6A;
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: #F7EDE6;
+            border-color: #BA8B73;
+        }
+
+        .hero-media {
+            flex: 1;
+            min-width: 280px;
+            background: #e2090900;
+            border-radius: 32px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0);
+            transition: all 0.2s;
+            border: 1px solid rgba(200, 165, 145, 0);
+        }
+
+        .img-placeholder {
+            text-align: center;
+            color: #B49481;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 28px;
+            margin: 60px 0 70px;
+            background: #FFFBF7;
+            border-radius: 48px;
+            padding: 40px 32px;
+            border: 1px solid #F3E5DC;
+        }
+
+        .feature-item {
+            flex: 1;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .feature-icon {
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #634E43;
+        }
+
+        .feature-text {
+            font-size: 0.85rem;
+            color: #8F776A;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #4A3730;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: #957A6B;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bouquet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 32px;
+            margin-bottom: 70px;
+        }
+
+        .bouquet-card {
+            background: #FFFFFFE6;
+            backdrop-filter: blur(0px);
+            border-radius: 28px;
+            overflow: hidden;
+            transition: 0.25s ease;
+            box-shadow: 0 5px 18px rgba(97, 70, 58, 0.05);
+            border: 1px solid #F5E3D8;
+        }
+
+        .bouquet-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 28px -12px rgba(98, 68, 54, 0.12);
+            border-color: #E6CFC1;
+        }
+
+        .card-img {
+            height: 240px;
+            background: #e6d9c7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #F7E3D8;
+        }
+
+        .card-info {
+            padding: 20px 18px 22px;
+        }
+
+        .card-info h3 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 6px;
+            color: #3B2C26;
+        }
+
+        .card-price {
+            font-weight: 600;
+            color: #C1846A;
+            font-size: 1.2rem;
+            margin: 10px 0 8px;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: #5E4D44;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .card-btn {
+            background: none;
+            border: 1px solid #D9B6A0;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #AA7C6A;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .card-btn:hover {
+            text-decoration: none;
+            background: #D9B6A0;
+            color: white;
+            border-color: #D9B6A0;
+        }
+        
+        .card-btn a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            background: #FEF5EF;
+            border-radius: 48px;
+            padding: 48px 40px;
+            margin: 50px 0 70px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1.2;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #4C3530;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #6F5547;
+        }
+
+        .about-media {
+            flex: 1;
+            background: #F0E2D8;
+            border-radius: 32px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reviews {
+            margin: 60px 0 70px;
+        }
+
+        .review-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            justify-content: center;
+        }
+
+        .review-item {
+            background: #FFFFFFD9;
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            padding: 24px 26px;
+            flex: 1;
+            min-width: 240px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #FAEDE4;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #5F4940;
+            margin: 12px 0;
+            line-height: 1.5;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #BC8A71;
+            margin-top: 10px;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding: 48px 0 32px;
+            border-top: 1px solid #EDDDD2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .footer-col h4 {
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #7F6254;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #9F8475;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: #C59178;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 0.75rem;
+            color: #BFA696;
+            border-top: 1px solid #F0E0D6;
+            padding-top: 28px;
+        }
+
+        @media (max-width: 780px) {
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .container {
+                padding: 0 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- БЛОК АВТОРИЗАЦИИ -->
+        <div class="auth-block">
+            <span id="user-name"></span>
+            <span id="admin-link"></span>
+            <button id="auth-btn" onclick="handleAuth()">Войти</button>
+        </div>
+
+        <!-- ХЕДЕР -->
+        <div class="navbar">
+            <a href="/" class="logo">ЛАВАНДА<span>florist</span></a>
+            <ul class="nav-links">
+                <li><a href="/byketi">Букеты</a></li>
+                <li><a href="/kompozisii">Композиции</a></li>
+                <li><a href="/dostavka">Доставка</a></li>
+                <li><a href="/contactu">Контакты</a></li>
+            </ul>
+        </div>
+
+        <!-- ГЕРОЙ СЕКЦИЯ c местом для вашего фото -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Свежие цветы ежедневно</div>
+                <h1 class="hero-title">Цветы, которые <i>говорят</i> <br> без слов</h1>
+                <p class="hero-desc">Нежные, живые композиции ручной работы. Доставка по городу за 2 часа. Создаём настроение с 2015 года.</p>
+                <div class="btn-group">
+                    <a href="/byketi" class="btn-primary">Выбрать букет</a>
+                    <a href="./dizain-byket.html" class="btn-outline">Заказать дизайн-букет</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <div class="img-placeholder">
+                    <img src="./картинки/главная страница.png" alt="карта" width="580" height="400" style="border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- БЛОК ПРЕИМУЩЕСТВ - информативно -->
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">🌸</div>
+                <div class="feature-title">100% свежесть</div>
+                <div class="feature-text">Поставки из лучших теплиц дважды в день</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+                <div class="feature-title">Доставка 2–3 часа</div>
+                <div class="feature-text">Бесплатно при заказе от 3000₽</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💐</div>
+                <div class="feature-title">Флорист 24/7</div>
+                <div class="feature-text">Поможем подобрать идеальный букет</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎁</div>
+                <div class="feature-title">Открытка и упаковка</div>
+                <div class="feature-text">Бесплатная подарочная упаковка</div>
+            </div>
+        </div>
+
+        <!-- ПОПУЛЯРНЫЕ БУКЕТЫ -->
+        <div class="section-header">
+            <h2>Самые популярные букеты</h2>
+            <p>Нежные композиции, которые выбирают чаще всего. Созданы с любовью к деталям.</p>
+        </div>
+        <div class="bouquet-grid">
+            <div class="bouquet-card">
+                <div class="card-img">
+                    <img src="./картинки/пионы.png" alt="Нежный пион" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="card-info">
+                    <h3>Нежный пион</h3>
+                    <div class="card-price">2 790 ₽</div>
+                    <div class="card-desc">Пышные пионы, эвкалипт, нежные тона. Букет-облако.</div>
+                    <button class="card-btn"><a href="/zakazat_tovar">Заказать</a></button>
+                </div>
+            </div>
+
+            <div class="bouquet-card">
+                <div class="card-img">
+                    <img src="./картинки/роза.png" alt="Английская роза" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="card-info">
+                    <h3>Английская роза</h3>
+                    <div class="card-price">3 450 ₽</div>
+                    <div class="card-desc">Кустовая роза персикового оттенка, маттиола, нежность.</div>
+                    <button class="card-btn"><a href="/zakazat_tovar">Заказать</a></button>
+                </div>
+            </div>
+
+            <div class="bouquet-card">
+                <div class="card-img">
+                    <img src="./картинки/голубые.png" alt="Гортензия Dream" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="card-info">
+                    <h3>Гортензия Dream</h3>
+                    <div class="card-price">3 890 ₽</div>
+                    <div class="card-desc">Голубая гортензия, эустома, зелень. Нежный аромат.</div>
+                    <button class="card-btn"><a href="/zakazat_tovar">Заказать</a></button>
+                </div>
+            </div>
+
+            <div class="bouquet-card">
+                <div class="card-img">
+                    <img src="./картинки/лаванда_ромашка_гипсофила.png" alt="Прованс" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="card-info">
+                    <h3>Прованс</h3>
+                    <div class="card-price">2 650 ₽</div>
+                    <div class="card-desc">Лаванда, ромашка, гипсофила. Для уюта и тепла.</div>
+                    <button class="card-btn"><a href="/zakazat_tovar">Заказать</a></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ИНФОРМАЦИОННЫЙ БЛОК О КОМПАНИИ -->
+        <div class="about-section">
+            <div class="about-text">
+                <h3>Создаём цветочные истории с 2015</h3>
+                <p>«Лаванда» — это не просто доставка цветов. Мы подбираем композиции под характер человека и событие. Работаем напрямую с голландскими и эквадорскими фермами, поэтому розы стоят свежими до 12 дней.</p>
+                <p>Каждый букет собирается флористом в день отправки. Вы можете заказать авторский букет по вашему описанию — мы реализуем любые идеи. Искренние отзывы наших клиентов — лучшее доказательство любви к цветам.</p>
+                <a href="/o_nas" class="btn-outline" style="margin-top: 6px;">Подробнее о нас →</a>
+            </div>
+            <div class="about-media" style="background: none; border: none; padding: 0; overflow: hidden;">
+                <img src="./картинки/роза_в_воде.png" alt="Английская роза" style="width:100%; height:100%; object-fit:cover; border-radius: 32px;">
+            </div>
+        </div>
+
+        <!-- ОТЗЫВЫ -->
+        <div class="section-header">
+            <h2>Что говорят наши клиенты</h2>
+            <p>Более 1500 благодарных отзывов в этом году</p>
+        </div>
+        <div class="reviews">
+            <div class="review-cards">
+                <div class="review-item">
+                    <span>★★★★★</span>
+                    <div class="review-text">“Заказывала букет на годовщину, доставили даже раньше срока. Цветы стояли почти две недели, шикарные пионы, спасибо большое!”</div>
+                    <div class="review-author">— Екатерина П.</div>
+                </div>
+                <div class="review-item">
+                    <span>★★★★★</span>
+                    <div class="review-text">“Очень понравилось, что флорист позвонил и уточнил детали. Композиция получилась нежнее фото, теперь только к вам.”</div>
+                    <div class="review-author">— Александр М.</div>
+                </div>
+                <div class="review-item">
+                    <span>★★★★★</span>
+                    <div class="review-text">“Доставка курьером с такой заботой, открытка написана каллиграфическим почерком. Чувствуется душевный подход.”</div>
+                    <div class="review-author">— Алина В.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ФУТЕР -->
+        <div class="footer">
+            <div class="footer-col">
+                <h4>Лаванда Florist</h4>
+                <p>С любовью к цветам с 2015. Ежедневно с 9:00 до 21:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p>+7 (999) 123-45-67</p>
+                <p>hello@lavanda-flower.ru</p>
+                <p>м. Цветной бульвар, ул. Цветочная 14</p>
+            </div>
+            <div class="footer-col">
+                <h4>Информация</h4>
+                <a href="#">Доставка и оплата</a>
+                <a href="#">Возврат товара</a>
+                <a href="#">Оптовым клиентам</a>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+            <div class="footer-col">
+                <h4>Мы в соцсетях</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Telegram</a>
+                <a href="#">ВКонтакте</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 Магазин цветов «Лаванда». Свежесть и эстетика в каждой детали.
+        </div>
+    </div>
+
+    <!-- СКРИПТ ДЛЯ АВТОРИЗАЦИИ С АДМИН-ССЫЛКОЙ -->
+    <script>
+        async function checkAuth() {
+            const response = await fetch('/api/me');
+            if (response.ok) {
+                const user = await response.json();
+                let adminLinkHtml = '';
+                if (user.role === 'admin') {
+                    adminLinkHtml = '<a href="/admin-products" class="admin-link">📦 Админ панель</a>';
+                }
+                document.getElementById('user-name').innerHTML = `🌸 Привет, ${user.name}`;
+                document.getElementById('admin-link').innerHTML = adminLinkHtml;
+                document.getElementById('auth-btn').textContent = 'Выйти';
+            } else {
+                document.getElementById('user-name').innerHTML = '';
+                document.getElementById('admin-link').innerHTML = '';
+                document.getElementById('auth-btn').textContent = 'Войти';
+            }
+        }
+        
+        async function handleAuth() {
+            const btn = document.getElementById('auth-btn');
+            if (btn.textContent === 'Войти') {
+                window.location.href = '/login';
+            } else {
+                const response = await fetch('/api/logout', { method: 'POST' });
+                if (response.ok) {
+                    window.location.href = '/';
+                }
+            }
+        }
+        
+        checkAuth();
+    </script>
+</body>
+</html>

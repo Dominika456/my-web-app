@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все букеты - Лаванда</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background-color:#FEFAF6; color:#2E2A28; font-family:'Inter',sans-serif; line-height:1.5; }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .navbar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; padding:28px 0 20px; border-bottom:1px solid rgba(226,192,173,0.3); margin-bottom:40px; }
+        .logo { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:500; color:#AA7C6A; background:#FFF6F0; padding:6px 16px; border-radius:60px; text-decoration:none; }
+        .logo span { font-weight:300; }
+        .nav-links { display:flex; gap:32px; list-style:none; }
+        .nav-links a { text-decoration:none; font-weight:450; color:#5A4A42; transition:0.2s; font-size:1rem; }
+        .nav-links a:hover { color:#C67C5E; }
+
+        .auth-block { text-align:right; padding:10px 0; background:#FFF6F0; border-radius:50px; margin-bottom:15px; }
+        .auth-block span { margin-right:15px; font-weight:500; color:#AA7C6A; }
+        .auth-block button { background:#D9B6A0; border:none; padding:8px 20px; border-radius:40px; color:white; cursor:pointer; font-family:'Inter',sans-serif; font-size:0.9rem; }
+
+        .page-header { text-align:center; margin:20px 0 30px; }
+        .page-header h1 { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:500; color:#3B2C26; margin-bottom:12px; }
+
+        .filter-section { background:white; padding:25px; border-radius:20px; margin-bottom:40px; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+        .search-box { margin-bottom:20px; }
+        .search-box input { width:100%; padding:12px 20px; border:1px solid #E0D0C5; border-radius:50px; font-size:1rem; font-family:'Inter',sans-serif; }
+        .price-filter { display:flex; gap:20px; align-items:flex-end; flex-wrap:wrap; }
+        .price-filter div { flex:1; }
+        .price-filter label { display:block; margin-bottom:5px; font-weight:500; color:#5A4A42; }
+        .price-filter input { width:100%; padding:10px 15px; border:1px solid #E0D0C5; border-radius:50px; font-size:0.9rem; }
+        .filter-btn { background:#D9B6A0; border:none; padding:10px 25px; border-radius:50px; color:white; cursor:pointer; font-family:'Inter',sans-serif; font-weight:500; }
+        .reset-btn { background:#999; border:none; padding:10px 25px; border-radius:50px; color:white; cursor:pointer; margin-left:10px; }
+
+        .bouquet-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:32px; margin-bottom:40px; }
+        .bouquet-card { background:#FFFFFFE6; border-radius:28px; overflow:hidden; transition:0.25s ease; box-shadow:0 5px 18px rgba(97,70,58,0.05); border:1px solid #F5E3D8; text-decoration:none; color:inherit; }
+        .bouquet-card:hover { transform:translateY(-6px); }
+        .card-img { height:240px; background:#e6d9c7; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+        .card-img img { width:100%; height:100%; object-fit:cover; }
+        .card-info { padding:20px 18px 22px; }
+        .card-info h3 { font-size:1.35rem; font-weight:500; font-family:'Playfair Display',serif; margin-bottom:6px; color:#3B2C26; }
+        .card-price { font-weight:600; color:#C1846A; font-size:1.2rem; margin:10px 0 8px; }
+        .card-desc { font-size:0.85rem; color:#5E4D44; margin-bottom:18px; line-height:1.4; }
+        .card-btn { background:none; border:1px solid #D9B6A0; padding:8px 18px; border-radius:40px; font-size:0.8rem; font-weight:500; color:#AA7C6A; cursor:pointer; display:inline-block; text-decoration:none; }
+
+        .pagination { display:flex; justify-content:center; gap:10px; margin:40px 0; flex-wrap:wrap; }
+        .pagination button { padding:10px 18px; background:#D9B6A0; border:none; border-radius:40px; color:white; cursor:pointer; font-size:0.9rem; }
+        .pagination button:disabled { background:#ccc; cursor:not-allowed; }
+        .pagination button.active { background:#C59278; }
+        .pagination span { padding:10px 18px; color:#AA7C6A; }
+
+        .loading { text-align:center; padding:50px; font-size:1.2rem; color:#AA7C6A; }
+        .no-results { text-align:center; padding:50px; font-size:1.1rem; color:#999; }
+
+        .footer { margin-top:60px; padding:48px 0 32px; border-top:1px solid #EDDDD2; display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; }
+        .footer-col { flex:1; min-width:160px; }
+        .footer-col h4 { font-weight:600; margin-bottom:18px; color:#7F6254; }
+        .footer-col p, .footer-col a { color:#9F8475; text-decoration:none; font-size:0.9rem; line-height:1.8; display:block; }
+        .copyright { text-align:center; margin-top:48px; font-size:0.75rem; color:#BFA696; border-top:1px solid #F0E0D6; padding-top:28px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="auth-block">
+        <span id="user-name"></span>
+        <button id="auth-btn" onclick="handleAuth()">Войти</button>
+    </div>
+
+    <div class="navbar">
+        <a href="/" class="logo">ЛАВАНДА<span>florist</span></a>
+        <ul class="nav-links">
+            <li><a href="/byketi">Букеты</a></li>
+            <li><a href="/kompozisii">Композиции</a></li>
+            <li><a href="/dostavka">Доставка</a></li>
+            <li><a href="/contactu">Контакты</a></li>
+        </ul>
+    </div>
+
+    <div class="page-header">
+        <h1>Все букеты</h1>
+        <p>Большой выбор свежих цветов на любой вкус и повод</p>
+    </div>
+
+    <div class="filter-section">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Поиск по названию или описанию...">
+        </div>
+        <div class="price-filter">
+            <div><label>Цена от (₽)</label><input type="number" id="minPrice" placeholder="0"></div>
+            <div><label>Цена до (₽)</label><input type="number" id="maxPrice" placeholder="10000"></div>
+            <div><button class="filter-btn" onclick="applyFilter()">Применить фильтр</button>
+            <button class="reset-btn" onclick="resetFilter()">Сбросить</button></div>
+        </div>
+    </div>
+
+    <div id="products-container"><div class="loading">Загрузка...</div></div>
+
+    <div id="pagination" class="pagination"></div>
+
+    <div class="footer">
+        <div class="footer-col"><h4>Лаванда Florist</h4><p>Свежие цветы с 2015 года</p></div>
+        <div class="footer-col"><h4>Контакты</h4><p>+7 (999) 123-45-67</p><p>hello@lavanda-flower.ru</p></div>
+        <div class="footer-col"><h4>Информация</h4><a href="/dostavka">Доставка</a><a href="/vozvrat">Возврат</a></div>
+        <div class="footer-col"><h4>Мы в соцсетях</h4><a href="#">Instagram</a><a href="#">Telegram</a></div>
+    </div>
+    <div class="copyright">© 2025 Магазин цветов «Лаванда»</div>
+</div>
+
+<script>
+    let currentPage = 1;
+    let currentSearch = '';
+    let currentMinPrice = '';
+    let currentMaxPrice = '';
+
+    async function loadProducts() {
+        const container = document.getElementById('products-container');
+        container.innerHTML = '<div class="loading">Загрузка...</div>';
+        
+        let url = `/api/products?page=${currentPage}&limit=4`;
+        if (currentSearch) url += `&search=${encodeURIComponent(currentSearch)}`;
+        if (currentMinPrice) url += `&minPrice=${currentMinPrice}`;
+        if (currentMaxPrice) url += `&maxPrice=${currentMaxPrice}`;
+        
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            if (data.products && data.products.length === 0) {
+                container.innerHTML = '<div class="no-results">Ничего не найдено</div>';
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+            
+            let html = '<div class="bouquet-grid">';
+            data.products.forEach(product => {
+                const imagePath = product.image ? `./картинки/${product.image}` : './картинки/placeholder.png';
+                html += `
+                    <div class="bouquet-card">
+                        <div class="card-img"><img src="${imagePath}" alt="${product.name}"></div>
+                        <div class="card-info">
+                            <h3>${product.name}</h3>
+                            <div class="card-price">${product.price.toLocaleString()} ₽</div>
+                            <div class="card-desc">${product.description || 'Красивый букет'}</div>
+                            <a href="/zakazat_tovar" class="card-btn">Заказать</a>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+            
+            renderPagination(data.currentPage, data.totalPages);
+        } catch (error) {
+            container.innerHTML = '<div class="no-results">Ошибка загрузки</div>';
+        }
+    }
+
+    function renderPagination(currentPage, totalPages) {
+        const paginationDiv = document.getElementById('pagination');
+        if (totalPages <= 1) {
+            paginationDiv.innerHTML = '';
+            return;
+        }
+        
+        let html = `<button onclick="goToPage(1)" ${currentPage === 1 ? 'disabled' : ''}>«</button>`;
+        html += `<button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>‹</button>`;
+        
+        for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) {
+            html += `<button onclick="goToPage(${i})" class="${i === currentPage ? 'active' : ''}">${i}</button>`;
+        }
+        
+        html += `<button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>›</button>`;
+        html += `<button onclick="goToPage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''}>»</button>`;
+        
+        paginationDiv.innerHTML = html;
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        loadProducts();
+    }
+
+    function applyFilter() {
+        currentSearch = document.getElementById('searchInput').value;
+        currentMinPrice = document.getElementById('minPrice').value;
+        currentMaxPrice = document.getElementById('maxPrice').value;
+        currentPage = 1;
+        loadProducts();
+    }
+
+    function resetFilter() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('minPrice').value = '';
+        document.getElementById('maxPrice').value = '';
+        currentSearch = '';
+        currentMinPrice = '';
+        currentMaxPrice = '';
+        currentPage = 1;
+        loadProducts();
+    }
+
+    let searchTimeout;
+    document.getElementById('searchInput').addEventListener('keyup', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            applyFilter();
+        }, 500);
+    });
+
+    loadProducts();
+
+    async function checkAuth() {
+        const response = await fetch('/api/me');
+        if (response.ok) {
+            const user = await response.json();
+            document.getElementById('user-name').innerHTML = `Привет, ${user.name}`;
+            document.getElementById('auth-btn').textContent = 'Выйти';
+        }
+    }
+    async function handleAuth() {
+        const btn = document.getElementById('auth-btn');
+        if (btn.textContent === 'Войти') window.location.href = '/login';
+        else { await fetch('/api/logout', { method: 'POST' }); window.location.href = '/'; }
+    }
+    checkAuth();
+</script>
+</body>
+</html>

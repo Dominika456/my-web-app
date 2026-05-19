@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Оформление заказа | Лаванда — доставка цветов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FEFAF6;
+            color: #2E2A28;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 28px 0 20px;
+            border-bottom: 1px solid rgba(226, 192, 173, 0.3);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            color: #AA7C6A;
+            background: #FFF6F0;
+            padding: 6px 16px;
+            border-radius: 60px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .logo span {
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 450;
+            color: #5A4A42;
+            transition: color 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #C67C5E;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 20px 0 40px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: #3B2C26;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #957A6B;
+            max-width: 550px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        .checkout-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            margin: 30px 0 70px;
+        }
+
+        .order-form {
+            flex: 1.4;
+            min-width: 300px;
+            background: #FFFFFFE6;
+            border-radius: 40px;
+            padding: 36px 38px;
+            border: 1px solid #F5E3D8;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+        }
+
+        .order-form h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #4A3730;
+            margin-bottom: 8px;
+        }
+
+        .form-sub {
+            color: #957A6B;
+            margin-bottom: 28px;
+            font-size: 0.85rem;
+            border-left: 3px solid #D9B6A0;
+            padding-left: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 180px;
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #5A4A42;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 18px;
+            background: #FEFAF6;
+            border: 1px solid #EED7CC;
+            border-radius: 60px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            color: #2E2A28;
+        }
+
+        .form-group textarea {
+            border-radius: 28px;
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #D9B6A0;
+            box-shadow: 0 0 0 3px rgba(217, 182, 160, 0.2);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            width: 18px;
+            height: 18px;
+            accent-color: #D9B6A0;
+        }
+
+        .btn-submit {
+            background: #D9B6A0;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        .btn-submit:hover {
+            background: #C59278;
+            transform: translateY(-2px);
+        }
+
+        .order-summary {
+            flex: 1;
+            min-width: 280px;
+            background: #FFFFFFD9;
+            border-radius: 40px;
+            padding: 32px;
+            border: 1px solid #F5E3D8;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .order-summary h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #4A3730;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #F0E2D8;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #F5E3D8;
+        }
+
+        .cart-item-img {
+            width: 70px;
+            height: 70px;
+            background: #FAF1EA;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4C3931;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-info .item-price {
+            color: #B97F64;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .cart-item-info .item-quantity {
+            color: #8C7263;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border-top: 2px solid #F0E2D8;
+            margin-top: 8px;
+        }
+
+        .total-row span:first-child {
+            color: #5A4A42;
+        }
+
+        .total-row span:last-child {
+            color: #B97F64;
+        }
+
+        .delivery-note {
+            background: #FEF5EF;
+            border-radius: 24px;
+            padding: 16px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #8C7263;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #AA7C6A;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding: 48px 0 32px;
+            border-top: 1px solid #EDDDD2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .footer-col h4 {
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #7F6254;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #9F8475;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: #C59178;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 0.75rem;
+            color: #BFA696;
+            border-top: 1px solid #F0E0D6;
+            padding-top: 28px;
+        }
+
+        @media (max-width: 780px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .container {
+                padding: 0 18px;
+            }
+            .order-form {
+                padding: 24px 20px;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .order-summary {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <a href="/index" class="logo">ЛАВАНДА<span>florist</span></a>
+        <ul class="nav-links">
+            <li><a href="/byketi">Букеты</a></li>
+            <li><a href="/kompozisii">Композиции</a></li>
+            <li><a href="/dostavka">Доставка</a></li>
+            <li><a href="/contactu">Контакты</a></li>
+        </ul>
+    </div>
+
+    <div class="page-header">
+        <h1>Оформление заказа</h1>
+        <p>Заполните данные, и мы доставим свежие цветы в удобное для вас время</p>
+    </div>
+
+    <div class="checkout-wrapper">
+        <form class="order-form" action="#" method="post">
+            <h2>Контактные данные</h2>
+            <div class="form-sub">Поля со звездочкой обязательны для заполнения</div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Ваше имя *</label>
+                    <input type="text" placeholder="Как к вам обращаться?" required>
+                </div>
+                <div class="form-group">
+                    <label>Телефон *</label>
+                    <input type="tel" placeholder="+7 (___) ___ __ __" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="example@mail.ru">
+                </div>
+                <div class="form-group">
+                    <label>Удобный способ связи</label>
+                    <select>
+                        <option>Позвонить</option>
+                        <option>WhatsApp</option>
+                        <option>Telegram</option>
+                        <option>Email</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 20px;">Адрес доставки</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Город *</label>
+                    <input type="text" value="Москва" required>
+                </div>
+                <div class="form-group">
+                    <label>Улица *</label>
+                    <input type="text" placeholder="ул. Цветочная" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Дом / корпус *</label>
+                    <input type="text" placeholder="14" required>
+                </div>
+                <div class="form-group">
+                    <label>Квартира / офис</label>
+                    <input type="text" placeholder="25">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Подъезд / домофон</label>
+                    <input type="text" placeholder="2 подъезд, домофон 25">
+                </div>
+                <div class="form-group">
+                    <label>Этаж</label>
+                    <input type="text" placeholder="4">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Дата доставки *</label>
+                    <input type="text" placeholder="25 мая 2026">
+                </div>
+                <div class="form-group">
+                    <label>Временной интервал</label>
+                    <select>
+                        <option>10:00 – 12:00</option>
+                        <option>12:00 – 14:00</option>
+                        <option>14:00 – 16:00</option>
+                        <option>16:00 – 18:00</option>
+                        <option>18:00 – 20:00</option>
+                        <option>20:00 – 22:00</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label>Комментарий к заказу</label>
+                <textarea placeholder="Пожелания по доставке, код от домофона, особые приметы..."></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <label>Способ оплаты</label>
+                <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="payment" checked> Картой онлайн</label>
+                    <label class="radio-option"><input type="radio" name="payment"> Наличными курьеру</label>
+                    <label class="radio-option"><input type="radio" name="payment"> Картой курьеру</label>
+                    <label class="radio-option"><input type="radio" name="payment"> СБП / ссылка</label>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label>Подарочная открытка</label>
+                <textarea placeholder="Напишите текст поздравления (до 300 символов)"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Подтвердить заказ →</button>
+            <div class="delivery-note" style="margin-top: 20px;">
+                🌸 Нажимая «Подтвердить заказ», вы соглашаетесь с условиями обработки персональных данных. Наш менеджер свяжется с вами в течение 15 минут для подтверждения.
+            </div>
+        </form>
+
+        <div class="order-summary">
+            <h3>Ваш заказ</h3>
+            <div class="cart-item">
+                <div class="cart-item-img">
+                    <img src="./картинки/красная_роза.png" alt="Английская роза">
+                </div>
+                <div class="cart-item-info">
+                    <h4>Английская роза</h4>
+                    <div class="item-price">3 450 ₽</div>
+                    <div class="item-quantity">Количество: 1 шт.</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="cart-item-img">
+                    <img src="./картинки/гортензия.png" alt="Гортензия Dream">
+                </div>
+                <div class="cart-item-info">
+                    <h4>Гортензия Dream</h4>
+                    <div class="item-price">3 890 ₽</div>
+                    <div class="item-quantity">Количество: 1 шт.</div>
+                </div>
+            </div>
+
+            <div class="total-row">
+                <span>Товары (2 шт.)</span>
+                <span>7 340 ₽</span>
+            </div>
+            <div class="total-row" style="border-top: none; padding-top: 0;">
+                <span>Доставка</span>
+                <span>299 ₽</span>
+            </div>
+            <div class="total-row">
+                <span>Итого к оплате</span>
+                <span>7 639 ₽</span>
+            </div>
+
+            <div class="delivery-note">
+                🚚 Бесплатная доставка при заказе от 3000 ₽ — у вас уже есть! Стоимость доставки обнулена.
+            </div>
+
+            <a href="/byketi" class="back-link">← Вернуться к выбору букетов</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col">
+            <h4>Лаванда Florist</h4>
+            <p>Доставка свежих цветов с 2015 года. Любовь в каждом лепестке.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Контакты</h4>
+            <p>+7 (999) 123-45-67</p>
+            <p>order@lavanda-flower.ru</p>
+            <p>м. Цветной бульвар, ул. Цветочная 14</p>
+        </div>
+        <div class="footer-col">
+            <h4>Информация</h4>
+            <a href="/delivery">Доставка и оплата</a>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Публичная оферта</a>
+        </div>
+        <div class="footer-col">
+            <h4>Мы в соцсетях</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Telegram</a>
+            <a href="#">WhatsApp</a>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2025 Магазин цветов «Лаванда». Создаём красоту для важных моментов.
+    </div>
+</div>
+</body>
+</html>

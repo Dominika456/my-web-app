@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>О нас | Лаванда — история цветочного магазина</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FEFAF6;
+            color: #2E2A28;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== ХЕДЕР И НАВИГАЦИЯ ========== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 28px 0 20px;
+            border-bottom: 1px solid rgba(226, 192, 173, 0.3);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            color: #AA7C6A;
+            background: #FFF6F0;
+            padding: 6px 16px;
+            border-radius: 60px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .logo span {
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 450;
+            color: #5A4A42;
+            transition: color 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #C67C5E;
+        }
+
+        /* ========== ЗАГОЛОВОК ========== */
+        .page-header {
+            text-align: center;
+            margin: 20px 0 48px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: #3B2C26;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #957A6B;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* ========== ОСНОВНОЙ КОНТЕНТ ========== */
+        .story-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 56px;
+            margin-bottom: 70px;
+            align-items: center;
+        }
+
+        .story-text {
+            flex: 1.2;
+            min-width: 280px;
+        }
+
+        .story-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #4A3730;
+            margin-bottom: 20px;
+        }
+
+        .story-text p {
+            color: #6F5547;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .story-text .quote {
+            font-style: italic;
+            border-left: 3px solid #D9B6A0;
+            padding-left: 24px;
+            margin: 24px 0;
+            color: #AA7C6A;
+            font-size: 1.05rem;
+        }
+
+        .story-media {
+            flex: 1;
+            min-width: 280px;
+            background: #F8EFE8;
+            border-radius: 32px;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #F0E2D8;
+        }
+
+        .img-placeholder {
+            text-align: center;
+            color: #B49481;
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        /* Ценности */
+        .values-section {
+            background: #FFFFFFD9;
+            border-radius: 48px;
+            padding: 56px 40px;
+            margin-bottom: 70px;
+            border: 1px solid #F5E3D8;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #4A3730;
+            margin-bottom: 48px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .value-icon {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #AA7C6A;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: #8C7263;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Команда */
+        .team-section {
+            margin-bottom: 70px;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #4A3730;
+            margin-bottom: 48px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+            background: #FFFFFFE6;
+            border-radius: 32px;
+            padding: 28px 20px;
+            border: 1px solid #F5E3D8;
+            transition: 0.2s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .team-photo {
+            width: 140px;
+            height: 140px;
+            background: #FAF1EA;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #F0E2D8;
+        }
+
+        .team-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4C3931;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            color: #B97F64;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .team-desc {
+            color: #8C7263;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        /* Награды и факты */
+        .facts-section {
+            background: #FEF5EF;
+            border-radius: 48px;
+            padding: 48px 40px;
+            margin-bottom: 70px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .fact-item {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .fact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #D9B6A0;
+            margin-bottom: 8px;
+        }
+
+        .fact-label {
+            color: #6F5547;
+            font-size: 0.9rem;
+        }
+
+        /* ========== ПОДВАЛ ========== */
+        .footer {
+            margin-top: 60px;
+            padding: 48px 0 32px;
+            border-top: 1px solid #EDDDD2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .footer-col h4 {
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #7F6254;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #9F8475;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: #C59178;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 0.75rem;
+            color: #BFA696;
+            border-top: 1px solid #F0E0D6;
+            padding-top: 28px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #AA7C6A;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 780px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .container {
+                padding: 0 18px;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .values-section, .facts-section {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- ХЕДЕР -->
+    <div class="navbar">
+        <a href="/index" class="logo">ЛАВАНДА<span>florist</span></a>
+        <ul class="nav-links">
+            <li><a href="/byketi">Букеты</a></li>
+                <li><a href="/kompozisii">Композиции</a></li>
+                <li><a href="/dostavka">Доставка</a></li>
+                <li><a href="/contactu">Контакты</a></li>
+        </ul>
+    </div>
+
+    <a href="/index" class="back-link">← На главную</a>
+
+    <div class="page-header">
+        <h1>О нас</h1>
+        <p>История, ценности и люди, которые создают цветочное настроение каждый день</p>
+    </div>
+
+    <!-- ИСТОРИЯ -->
+  <div class="story-section">
+    <div class="story-text">
+        <h2>Наша история — любовь к цветам</h2>
+        <p>Магазин цветов «Лаванда» открыл свои двери в 2015 году. Всё началось с маленькой цветочной студии в центре Москвы и огромного желания дарить людям красоту и эмоции. Название выбрано не случайно — лаванда символизирует утончённость, уют и душевное тепло, которые мы вкладываем в каждый букет.</p>
+        <p>За 10 лет мы выросли в полноценный цветочный сервис с собственной доставкой и командой профессиональных флористов. Мы работаем напрямую с лучшими плантациями Голландии, Эквадора и России, поэтому наши цветы всегда свежие и стоят дольше.</p>
+        <div class="quote">
+            «Цветы способны выразить то, что невозможно передать словами. Мы помогаем вам говорить языком лепестков и ароматов.»
+        </div>
+        <p>Сегодня «Лаванда» — это не просто магазин, а пространство, где рождаются цветочные истории. Каждый букет собирается вручную с учётом пожеланий клиента. Мы гордимся тем, что более 5000 пар выбрали наши букеты для свадеб, а тысячи людей доверяют нам самые важные моменты своей жизни.</p>
+    </div>
+    <div class="story-media">
+        <img src="./картинки/вход.png" alt="Вход в цветочный магазин Лаванда" style="width:100%; height:100%; object-fit:cover; border-radius: 32px;">
+    </div>
+</div>
+    </div>
+
+    <!-- ЦЕННОСТИ -->
+<div class="container">
+    <div class="values-section">
+        <h2>Наши ценности</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🌸</div>
+                <h3>Свежесть 100%</h3>
+                <p>Цветы попадают к вам напрямую с плантаций. Поставки дважды в день, никаких залежалых букетов.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🎨</div>
+                <h3>Авторский подход</h3>
+                <p>Каждый букет — произведение искусства. Мы не работаем по шаблонам, а создаём уникальные композиции.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤍</div>
+                <h3>Забота о клиентах</h3>
+                <p>Всегда на связи, всегда поможем с выбором. Если цветы не понравились — вернём деньги.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌿</div>
+                <h3>Экологичность</h3>
+                <p>Используем биоразлагаемую упаковку, отказываемся от пластика там, где это возможно.</p>
+            </div>
+        </div>
+    </div>
+
+  <!-- КОМАНДА -->
+<div class="team-section">
+    <h2>Наша команда</h2>
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="team-photo">
+                <!-- Место для фото Анны Ковалёвой -->
+                <img src="./картинки/аня.png" alt="Анна Ковалёва" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+            </div>
+            <h3>Анна Ковалёва</h3>
+            <div class="team-role">Основатель и главный флорист</div>
+            <div class="team-desc">Обучалась флористике в Нидерландах. Влюблена в пионы и лаванду. Создаёт шедевры с душой.</div>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">
+                <!-- Место для фото Марии Соколовой -->
+                <img src="./картинки/мария.png" alt="Мария Соколова" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+            </div>
+            <h3>Мария Соколова</h3>
+            <div class="team-role">Ведущий флорист-дизайнер</div>
+            <div class="team-desc">Эксперт по свадебной флористике. Создаёт невероятные каскадные букеты и оформление торжеств.</div>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">
+                <!-- Место для фото Екатерины Волковой -->
+                <img src="./картинки/катя.png" alt="Екатерина Волкова" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+            </div>
+            <h3>Екатерина Волкова</h3>
+            <div class="team-role">Флорист-ботаник</div>
+            <div class="team-desc">Идеально подбирает растения по сезону и совместимости. Знает всё о каждом цветке.</div>
+        </div>
+        <div class="team-card">
+            <div class="team-photo">
+                <!-- Место для фото Дмитрия Воронова -->
+                <img src="./картинки/дима.png" alt="Дмитрий Воронов" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+            </div>
+            <h3>Дмитрий Воронов</h3>
+            <div class="team-role">Руководитель доставки</div>
+            <div class="team-desc">Организует логистику так, чтобы цветы приезжали свежими и точно в срок к получателю.</div>
+        </div>
+    </div>
+</div>
+
+    <!-- ФАКТЫ И ДОСТИЖЕНИЯ -->
+    <div class="facts-section">
+        <div class="fact-item">
+            <div class="fact-number">5000+</div>
+            <div class="fact-label">счастливых невест</div>
+        </div>
+        <div class="fact-item">
+            <div class="fact-number">10 лет</div>
+            <div class="fact-label">в мире флористики</div>
+        </div>
+        <div class="fact-item">
+            <div class="fact-number">98%</div>
+            <div class="fact-label">положительных отзывов</div>
+        </div>
+        <div class="fact-item">
+            <div class="fact-number">150+</div>
+            <div class="fact-label">сортов роз</div>
+        </div>
+        <div class="fact-item">
+            <div class="fact-number">24/7</div>
+            <div class="fact-label">поддержка клиентов</div>
+        </div>
+    </div>
+
+    <!-- ПОДВАЛ -->
+    <div class="footer">
+        <div class="footer-col">
+            <h4>Лаванда Florist</h4>
+            <p>Создаём цветочные истории с 2015 года. Любовь в каждом лепестке.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Контакты</h4>
+            <p>+7 (999) 123-45-67</p>
+            <p>hello@lavanda-flower.ru</p>
+            <p>м. Цветной бульвар, ул. Цветочная 14</p>
+        </div>
+        <div class="footer-col">
+            <h4>Информация</h4>
+            <a href="/delivery">Доставка и оплата</a>
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Вакансии</a>
+        </div>
+        <div class="footer-col">
+            <h4>Мы в соцсетях</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Telegram</a>
+            <a href="#">ВКонтакте</a>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2025 Магазин цветов «Лаванда». Цветы с заботой и любовью.
+    </div>
+</div>

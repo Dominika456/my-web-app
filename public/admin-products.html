@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление товарами - Админ панель</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+        h1 { color: #AA7C6A; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #D9B6A0; color: white; }
+        tr:hover { background: #f5f5f5; }
+        .btn { padding: 5px 10px; margin: 2px; text-decoration: none; border-radius: 5px; display: inline-block; }
+        .btn-edit { background: #4CAF50; color: white; }
+        .btn-delete { background: #f44336; color: white; }
+        .btn-add { background: #AA7C6A; color: white; padding: 10px 20px; margin-bottom: 20px; display: inline-block; text-decoration: none; border-radius: 5px; }
+        .btn-export { background: #2196F3; color: white; padding: 10px 20px; margin-bottom: 20px; margin-left: 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; }
+        .btn-export:hover { background: #0b7dda; }
+        .btn-back { background: #666; color: white; padding: 10px 20px; margin-bottom: 20px; display: inline-block; margin-right: 10px; text-decoration: none; border-radius: 5px; }
+        img { width: 50px; height: 50px; object-fit: cover; border-radius: 5px; }
+        .actions { white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Управление букетами</h1>
+        <a href="/" class="btn-back">← На главную</a>
+        <a href="/admin-products-add" class="btn-add">➕ Добавить новый букет</a>
+        <button onclick="exportToExcel()" class="btn-export">📊 Экспорт в Excel</button>
+        
+        <h2>Список товаров</h2>
+        <div id="loading">Загрузка...</div>
+        <table id="products-table" style="display: none;">
+            <thead>
+                <tr><th>ID</th><th>Изображение</th><th>Название</th><th>Цена</th><th>Описание</th><th>Действия</th></tr>
+            </thead>
+            <tbody id="products-list"></tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadProducts() {
+            try {
+                const response = await fetch('/api/products?page=1&limit=100');
+                const data = await response.json();
+                
+                // Товары находятся в data.products (из-за пагинации)
+                const products = data.products || data;
+                
+                const tbody = document.getElementById('products-list');
+                tbody.innerHTML = '';
+                
+                products.forEach(product => {
+                    const row = tbody.insertRow();
+                    row.insertCell(0).textContent = product.id;
+                    row.insertCell(1).innerHTML = product.image ? `<img src="./картинки/${product.image}" alt="${product.name}">` : '-';
+                    row.insertCell(2).textContent = product.name;
+                    row.insertCell(3).textContent = `${product.price} ₽`;
+                    row.insertCell(4).textContent = product.description ? product.description.substring(0, 50) + (product.description.length > 50 ? '...' : '') : '';
+                    row.insertCell(5).innerHTML = `
+                        <a href="/admin-products-edit?id=${product.id}" class="btn btn-edit">✏️ Редактировать</a>
+                        <button onclick="deleteProduct(${product.id})" class="btn btn-delete">🗑️ Удалить</button>
+                    `;
+                });
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('products-table').style.display = 'table';
+            } catch (error) {
+                document.getElementById('loading').innerHTML = '<p style="color: red;">Ошибка загрузки товаров. Проверьте подключение.</p>';
+                console.error('Ошибка:', error);
+            }
+        }
+        
+        async function deleteProduct(id) {
+            if (confirm('Вы уверены, что хотите удалить этот товар?')) {
+                try {
+                    const response = await fetch(`/api/products/${id}`, { method: 'DELETE' });
+                    if (response.ok) {
+                        alert('Товар удалён!');
+                        loadProducts();
+                    } else {
+                        const error = await response.json();
+                        alert('Ошибка: ' + error.error);
+                    }
+                } catch (error) {
+                    alert('Ошибка при удалении');
+                }
+            }
+        }
+        
+        function exportToExcel() {
+            window.location.href = '/api/export-excel';
+        }
+        
+        loadProducts();
+    </script>
+</body>
+</html>

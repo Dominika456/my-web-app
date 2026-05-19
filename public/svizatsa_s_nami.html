@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Связаться с нами | Лаванда – форма обратной связи</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FEFAF6;
+            color: #2E2A28;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 28px 0 20px;
+            border-bottom: 1px solid rgba(226, 192, 173, 0.3);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            color: #AA7C6A;
+            background: #FFF6F0;
+            padding: 6px 16px;
+            border-radius: 60px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .logo span {
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 450;
+            color: #5A4A42;
+            transition: color 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #C67C5E;
+        }
+
+        .contact-page {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 56px;
+            margin: 30px 0 70px;
+        }
+
+        .contact-form-block {
+            flex: 1.2;
+            min-width: 280px;
+            background: #FFFFFFE6;
+            border-radius: 40px;
+            padding: 40px 36px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+            border: 1px solid #F5E3D8;
+        }
+
+        .contact-form-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: #3B2C26;
+            margin-bottom: 12px;
+        }
+
+        .contact-form-block .sub {
+            color: #957A6B;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            border-left: 3px solid #D9B6A0;
+            padding-left: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #5A4A42;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 18px;
+            background: #FEFAF6;
+            border: 1px solid #EED7CC;
+            border-radius: 60px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            color: #2E2A28;
+        }
+
+        .form-group textarea {
+            border-radius: 28px;
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #D9B6A0;
+            box-shadow: 0 0 0 3px rgba(217, 182, 160, 0.2);
+        }
+
+        .btn-send {
+            background: #D9B6A0;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .btn-send:hover {
+            background: #C59278;
+            transform: translateY(-2px);
+        }
+
+        .contact-info-block {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .info-card {
+            background: #FFFFFFD9;
+            border-radius: 32px;
+            padding: 28px 30px;
+            border: 1px solid #F5E3D8;
+        }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #4A3730;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-detail {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #6F5547;
+            font-size: 0.95rem;
+        }
+
+        .info-detail strong {
+            font-weight: 600;
+            color: #AA7C6A;
+            min-width: 85px;
+        }
+
+        .social-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .social-link {
+            background: #FEF5EF;
+            border-radius: 60px;
+            padding: 8px 22px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #AA7C6A;
+            border: 1px solid #EED7CC;
+            transition: 0.2s;
+        }
+
+        .social-link:hover {
+            background: #D9B6A0;
+            color: white;
+            border-color: #D9B6A0;
+        }
+
+        .photo-placeholder-card {
+            background: #F8EFE8;
+            border-radius: 32px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #F0E2D8;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .photo-placeholder-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding: 48px 0 32px;
+            border-top: 1px solid #EDDDD2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .footer-col h4 {
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #7F6254;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            color: #9F8475;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .footer-col a:hover {
+            color: #C59178;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 0.75rem;
+            color: #BFA696;
+            border-top: 1px solid #F0E0D6;
+            padding-top: 28px;
+        }
+
+        @media (max-width: 780px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .container {
+                padding: 0 18px;
+            }
+            .contact-form-block {
+                padding: 28px 22px;
+            }
+            .contact-form-block h2 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <a href="/index" class="logo">ЛАВАНДА<span>florist</span></a>
+        <ul class="nav-links">
+            <li><a href="/byketi">Букеты</a></li>
+            <li><a href="/kompozisii">Композиции</a></li>
+            <li><a href="/dostavka">Доставка</a></li>
+            <li><a href="/contactu">Контакты</a></li>
+        </ul>
+    </div>
+
+    <div class="contact-page">
+        <div class="contact-form-block">
+            <h2>Связаться с нами</h2>
+            <div class="sub">Напишите, и мы подберём идеальный букет или композицию специально для вас</div>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label>Как к вам обращаться?</label>
+                    <input type="text" placeholder="Имя *" required>
+                </div>
+                <div class="form-group">
+                    <label>Телефон или e-mail</label>
+                    <input type="text" placeholder="+7 (___) ___ __ __  или example@mail.ru *" required>
+                </div>
+                <div class="form-group">
+                    <label>Что вас интересует?</label>
+                    <select>
+                        <option>Выбрать букет / композицию</option>
+                        <option>Индивидуальный заказ</option>
+                        <option>Свадебная флористика</option>
+                        <option>Доставка и оплата</option>
+                        <option>Стать партнёром</option>
+                        <option>Другое</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Сообщение или пожелания</label>
+                    <textarea placeholder="Расскажите о событии, бюджете или любимых цветах..."></textarea>
+                </div>
+                <button type="submit" class="btn-send">Отправить →</button>
+                <p style="font-size: 0.7rem; margin-top: 18px; color: #B89B8A;">Нажимая на кнопку, вы соглашаетесь с политикой обработки данных.</p>
+            </form>
+        </div>
+
+        <div class="contact-info-block">
+            <div class="info-card">
+                <h3>🌿 Быстрые контакты</h3>
+                <div class="info-detail"><strong>📞 Телефон</strong> +7 (999) 123-45-67</div>
+                <div class="info-detail"><strong>💬 WhatsApp/Telegram</strong> +7 (999) 123-45-67</div>
+                <div class="info-detail"><strong>✉️ Email</strong> hello@lavanda-flower.ru</div>
+                <div class="info-detail"><strong>📍 Адрес студии</strong> ул. Цветочная, 14, Москва (м. Цветной бульвар)</div>
+                <div class="social-row">
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Telegram</a>
+                    <a href="#" class="social-link">VK</a>
+                    <a href="#" class="social-link">WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>🌸 Всегда на связи</h3>
+                <div class="photo-placeholder-card">
+                    <img src="./картинки/команда_фото.png" alt="Наша команда флористов">
+                </div>
+                <p style="margin-top: 18px; font-size: 0.85rem; color:#7D6254;">Мы отвечаем в среднем за 15 минут в мессенджерах. Звоните с 9:00 до 21:00.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🕊️ Режим работы</h3>
+                <div class="info-detail"><strong>Флористы онлайн</strong> ежедневно, 9:00 – 21:00</div>
+                <div class="info-detail"><strong>Доставка</strong> 10:00 – 22:00 (без выходных)</div>
+                <div class="info-detail"><strong>Самовывоз</strong> 10:00 – 20:00</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-col">
+            <h4>Лаванда Florist</h4>
+            <p>Живые цветы и авторский подход с 2015 года. Создаём повод для улыбки</p>
+        </div>
+        <div class="footer-col">
+            <h4>Помощь</h4>
+            <a href="/dostavka">Доставка и оплата</a>
+            <a href="/vozvrat">Возврат товара</a>
+            <a href="#">Часто задаваемые вопросы</a>
+            <a href="#">Политика конфиденциальности</a>
+        </div>
+        <div class="footer-col">
+            <h4>Контакты</h4>
+            <p>+7 (999) 123-45-67</p>
+            <p>hello@lavanda-flower.ru</p>
+            <p>м. Цветной бульвар, ул. Цветочная 14</p>
+        </div>
+        <div class="footer-col">
+            <h4>Следите за нами</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Telegram-канал</a>
+            <a href="#">Pinterest</a>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2025 Магазин цветов «Лаванда». Нежные букеты и композиции с доставкой.
+    </div>
+</div>
+</body>
+</html>
